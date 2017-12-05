@@ -90,7 +90,10 @@ def process_message(update):
         send_message(response['text'], chat_id)
         return None
 
-    comment_text = message[url_comment_splitter+1:]
+    comment_text = message[url_comment_splitter+1:] + \
+        '\n\nI am a telegram bot. You can post comments to Youtube ' \
+        'videos anonymously!' \
+        '\nTry me out https://t.me/youcomment_bot'
     
     response = t.post_comment(video_url, comment_text)
     
