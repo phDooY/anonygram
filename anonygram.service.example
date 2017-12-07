@@ -1,0 +1,14 @@
+[Unit]
+Description=Runs anonygram bot in virtualenv
+
+[Service]
+WorkingDirectory=/root/anonygram
+ExecStart=/root/anonygram/venv/bin/python /root/anonygram/bot.py >> /var/log/anonygram/anonygram.log 2>&1
+Restart=on-failure
+RestartSec=3
+User=root
+Group=root
+TimeoutSec=50
+
+[Install]
+WantedBy=multi-user.target
